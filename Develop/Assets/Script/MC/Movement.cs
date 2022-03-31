@@ -27,7 +27,7 @@ public class Movement : MonoBehaviour
     {
         _playerInput = new Control();
         _rigidBody = GetComponent<Rigidbody>();
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     private void OnEnable(){

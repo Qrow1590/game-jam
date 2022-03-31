@@ -5,15 +5,17 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
-    GameObject openMenu;
+    void Awake(){
+        Cursor.lockState = CursorLockMode.None;
+    }
     public void OpenMenu(GameObject menu){
-        openMenu = menu;
         menu.SetActive(true);
     }
 
-    public void CloseMenu(){
-        openMenu.SetActive(false);
-        openMenu = null;
+
+
+    public void CloseMenu(GameObject menu){
+        menu.SetActive(false);
     }
 
     public void Play(){
@@ -23,4 +25,9 @@ public class Menu : MonoBehaviour
     public void Quit(){
         Application.Quit();
     }
+    public void returnMain(){
+        SceneManager.LoadScene(0);
+    }
+
+
 }
