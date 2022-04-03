@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3a4b4f30e6adf04dbfc0efa0e273ffa, type: 3}
+  m_Name: Baker
+  m_EditorClassIdentifier: 
+  intro:
+  - '*Hello there! How are you?'
+  - '*You want some of my world renowned honey bread?'
+  - '*Well, I''m sorry to say, but I''m afraid all of my stock was bought.'
+  - '*We''re fresh out!'
+  - '*However, if you could bring me some honey...'
+  - '*I can make some more! I''ll give you a loaf for your troubles as well.'
+  reminder:
+  - '*Did you forget? Please bring back some honey.'
+  ending:
+  - '*Oh thank you! 1 fresh honey loaf coming right up!'
+  - '*....'
+  - '*....'
+  - '*Here it is, I hope you enjoy it as much as I do!'
+  - '*See you later at the festival!'
+  - You have received 1 delicious world renowned honey bread loaf.
+  requirement: {fileID: 0}
+  gift: {fileID: 0}

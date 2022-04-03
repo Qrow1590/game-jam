@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3a4b4f30e6adf04dbfc0efa0e273ffa, type: 3}
+  m_Name: Farmer
+  m_EditorClassIdentifier: 
+  intro:
+  - '* You there! Yes, You!'
+  - '* See those lights? Of course you have. '
+  - '* Well, we need them to be lit but..'
+  - "* I\u2019m getting old in my years and can\u2019t reach up there myself. So
+    I need you to do it. "
+  - '* Go and find some wood, matches, and someone else to help you out'
+  - '* [Cough]'
+  reminder:
+  - '* Get wood! And fuel! '
+  - "* And find someone who\u2019s faster than you because you\u2019re taking too
+    long!"
+  - '* [Cough]'
+  ending:
+  - '* Finally [cough]! Thought it was going to take a year.'
+  - '* Let the festival begin!'
+  requirement: {fileID: 0}
+  gift: {fileID: 0}

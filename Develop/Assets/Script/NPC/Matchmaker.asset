@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3a4b4f30e6adf04dbfc0efa0e273ffa, type: 3}
+  m_Name: Matchmaker
+  m_EditorClassIdentifier: 
+  intro:
+  - '* Are you here for some matches? '
+  - "* Well I don\u2019t know if anyone here is your type.."
+  - '* Oh. You meant matches. As in fire matches. Oh my this is embarrassing'
+  - '* ...'
+  - "* Well, it\u2019s a nice day out and I need to get some flowers for a client. "
+  - "* But I don\u2019t want to miss any potential costumers but could you get me
+    some?"
+  - "* I\u2019ll consider it payment."
+  reminder:
+  - '* Ah..'
+  - '* Please come back with flowers.'
+  ending:
+  - '* Thank you , thank you , thank you!'
+  - "* I\u2019m sure my client will love these. Here\u2019s the matches you need."
+  - "* Don\u2019t hesitate to come back here for some advice though haha"
+  - You have received some hot sticks!
+  requirement: {fileID: 0}
+  gift: {fileID: 0}
