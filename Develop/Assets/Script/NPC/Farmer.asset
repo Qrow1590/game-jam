@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Farmer
   m_EditorClassIdentifier: 
   intro:
-  - '* You there! Yes, You!'
+  - '* You there! Yes, you!'
   - '* See those lights? Of course you have. '
   - '* Well, we need them to be lit but..'
   - "* I\u2019m getting old in my years and can\u2019t reach up there myself. So
@@ -22,8 +22,7 @@ MonoBehaviour:
   - '* [Cough]'
   reminder:
   - '* Get wood! And fuel! '
-  - "* And find someone who\u2019s faster than you because you\u2019re taking too
-    long!"
+  - "* And find someone who\u2019s faster than you! You\u2019re taking too long!"
   - '* [Cough]'
   ending:
   - '* Finally [cough]! Thought it was going to take a year.'

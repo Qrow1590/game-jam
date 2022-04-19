@@ -8,47 +8,69 @@ public class NPC : MonoBehaviour
 {
     private Control cont;
     private int talk = 0;
+    private int index = 0;
     [SerializeField] private NPCStats stats;
     [SerializeField] private TextMeshProUGUI dialouge;
     [SerializeField] private GameObject textBox;
-    private void Awake(){
+    [SerializeField] private Queue<string> intro = new Queue<string>();
+    [SerializeField] private string[] reminder = null;
+
+    private void Awake()
+    {
         cont = new Control();
+        for (int i = 0; i < stats.intro.Length; i++)
+        {
+            intro.Enqueue(stats.intro[i]);
+        }
+        reminder = stats.reminder;
     }
 
-    private void OnEnable(){
+    private void OnEnable()
+    {
         cont.Enable();
     }
 
-    private void OnDisable(){
+    private void OnDisable()
+    {
         cont.Interact.Disable();
         cont.Interact.Interact.Disable();
     }
-    private void OnTriggerEnter(Collider other) {
-        
-        if(other.gameObject.tag == "Player"){
-            textBox.SetActive(true);
-            if(talk == 0){
-            StartCoroutine(Dialouge(stats.intro));
-            }
-            if(talk > 0) {
-            StartCoroutine(Dialouge(stats.reminder));
-            }
+    public bool Dialouge()
+    {
+        textBox.SetActive(true);
+        if (talk == 0)
+        {
+            return Intro(intro);
+        } else if (talk > 0)
+        {
+            return Reminder(reminder);
+        }
+        return false;
+    }
+
+    private bool Intro(Queue<string> queue)
+    {
+        if (queue.Count > 0)
+        {
+            dialouge.text = queue.Dequeue();
+            return false;
+        } else {
+            talk++;
+            textBox.SetActive(false);
+            index=0;
+            return true;
         }
     }
-
-   private void OnTriggerExit(Collider other) {
-        talk++; 
-    }
-
-    private IEnumerator Dialouge(string[] arr)
-    {   
-        dialouge.text = arr[0];
-        yield return new WaitForSeconds(2f);
-        for(int i = 1; i < arr.Length ; i++){
-                yield return new WaitForSeconds(2f);
-                dialouge.text = arr[i];
-            }
-            yield return new WaitForSeconds(1f);
+    private bool Reminder(string[] arr)
+    {
+        if(index < arr.Length){
+        dialouge.text = arr[index];
+        index++;
+        return false;
+        } else {
             textBox.SetActive(false);
+            index = 0;
+            return true;
+        }
     }
 }

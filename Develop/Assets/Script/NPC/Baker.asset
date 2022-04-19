@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: Baker
   m_EditorClassIdentifier: 
   intro:
-  - '*Hello there! How are you?'
-  - '*You want some of my world renowned honey bread?'
+  - '* Hello there! How are you?'
+  - '* Do you want some of my world renowned honey bread?'
   - '*Well, I''m sorry to say, but I''m afraid all of my stock was bought.'
-  - '*We''re fresh out!'
-  - '*However, if you could bring me some honey...'
-  - '*I can make some more! I''ll give you a loaf for your troubles as well.'
+  - '*However, if you could bring me some honey, I can make some more!'
+  - '* I''ll give you a loaf for your troubles as well.'
   reminder:
   - '*Did you forget? Please bring back some honey.'
   ending:
