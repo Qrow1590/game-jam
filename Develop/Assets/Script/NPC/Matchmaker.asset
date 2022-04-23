@@ -29,5 +29,11 @@ MonoBehaviour:
   - "* I\u2019m sure my client will love these. Here\u2019s the matches you need."
   - "* Don\u2019t hesitate to come back here for some advice though haha"
   - You have received some hot sticks!
-  requirement: {fileID: 0}
-  gift: {fileID: 0}
+  questBlurb: '* Get flowers for the Matchmaker'
+  complete: 0
+  visibleGift: 1
+  takeGift: 1
+  requirement:
+  - Flower
+  gift:
+  - Matches

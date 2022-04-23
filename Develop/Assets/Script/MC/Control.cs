@@ -130,6 +130,52 @@ public class @Control : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""231bd98f-e617-46ad-83a5-5fa62271ed02"",
+            ""actions"": [
+                {
+                    ""name"": ""Menus"",
+                    ""type"": ""Button"",
+                    ""id"": ""83a6d452-139b-4215-8e13-624daf90f0b5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""a652e3f0-415f-4eb7-a620-748c45b9957f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""3644c87e-7c28-4c0c-946e-94524d1d6b48"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menus"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9fee829c-1ed1-4a72-ac59-89f022271ccc"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -141,6 +187,10 @@ public class @Control : IInputActionCollection, IDisposable
         // Interact
         m_Interact = asset.FindActionMap("Interact", throwIfNotFound: true);
         m_Interact_Interact = m_Interact.FindAction("Interact", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_Menus = m_UI.FindAction("Menus", throwIfNotFound: true);
+        m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -260,6 +310,47 @@ public class @Control : IInputActionCollection, IDisposable
         }
     }
     public InteractActions @Interact => new InteractActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private IUIActions m_UIActionsCallbackInterface;
+    private readonly InputAction m_UI_Menus;
+    private readonly InputAction m_UI_Pause;
+    public struct UIActions
+    {
+        private @Control m_Wrapper;
+        public UIActions(@Control wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Menus => m_Wrapper.m_UI_Menus;
+        public InputAction @Pause => m_Wrapper.m_UI_Pause;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void SetCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterface != null)
+            {
+                @Menus.started -= m_Wrapper.m_UIActionsCallbackInterface.OnMenus;
+                @Menus.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnMenus;
+                @Menus.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnMenus;
+                @Pause.started -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
+            }
+            m_Wrapper.m_UIActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Menus.started += instance.OnMenus;
+                @Menus.performed += instance.OnMenus;
+                @Menus.canceled += instance.OnMenus;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
+            }
+        }
+    }
+    public UIActions @UI => new UIActions(this);
     public interface IMovementActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -268,5 +359,10 @@ public class @Control : IInputActionCollection, IDisposable
     public interface IInteractActions
     {
         void OnInteract(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
+        void OnMenus(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

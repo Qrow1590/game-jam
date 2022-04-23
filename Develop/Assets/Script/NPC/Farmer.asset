@@ -21,11 +21,19 @@ MonoBehaviour:
   - '* Go and find some wood, matches, and someone else to help you out'
   - '* [Cough]'
   reminder:
-  - '* Get wood! And fuel! '
+  - '* Get wood! And matches! '
   - "* And find someone who\u2019s faster than you! You\u2019re taking too long!"
   - '* [Cough]'
   ending:
   - '* Finally [cough]! Thought it was going to take a year.'
   - '* Let the festival begin!'
-  requirement: {fileID: 0}
-  gift: {fileID: 0}
+  questBlurb: '* Get Wood, Matches, and a Helper for the festival'
+  complete: 0
+  visibleGift: 0
+  takeGift: 1
+  requirement:
+  - Helper
+  - Wood
+  - Matches
+  gift:
+  - Complete

@@ -39,7 +39,7 @@ public class Interact : MonoBehaviour
            }
         }
          if (other.tag == "Item") {
-            backpack.addInventory(other.name);
+            backpack.addInventory(other.name, true);
             other.gameObject.SetActive(false);
         }
     }

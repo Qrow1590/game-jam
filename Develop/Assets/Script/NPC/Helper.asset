@@ -25,12 +25,19 @@ MonoBehaviour:
   - "* To lift everyone\u2019s spirits? How lame... At least say you want to light
     up our lives."
   - '* ...'
-  - '* Well. I do want some honey bread. Fine.'
-  - '* Come back when you have everything you need. I''m going to take a nap'
+  - '* Fine. Come back when you have everything you need.'
+  - '* I''m going to take a nap .. zzzzz'
   reminder:
   - '* ZZZZZZZZZZZZZ'
   ending:
   - "* sNrk. Hu-Whu oh. It\u2019s you. I guess you\u2019re done then."
   - "* Well, alright go tell grandpa that I\u2019ll be up there"
-  requirement: {fileID: 0}
-  gift: {fileID: 0}
+  questBlurb: '* Get Wood and Matches for the Helper'
+  complete: 0
+  visibleGift: 0
+  takeGift: 0
+  requirement:
+  - Wood
+  - Matches
+  gift:
+  - Helper

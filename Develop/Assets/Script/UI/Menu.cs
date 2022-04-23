@@ -7,6 +7,7 @@ public class Menu : MonoBehaviour
 {
     void Awake(){
         Cursor.lockState = CursorLockMode.None;
+   
     }
     public void OpenMenu(GameObject menu){
         menu.SetActive(true);

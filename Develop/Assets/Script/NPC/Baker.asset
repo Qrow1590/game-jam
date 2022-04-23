@@ -27,5 +27,11 @@ MonoBehaviour:
   - '*Here it is, I hope you enjoy it as much as I do!'
   - '*See you later at the festival!'
   - You have received 1 delicious world renowned honey bread loaf.
-  requirement: {fileID: 0}
-  gift: {fileID: 0}
+  questBlurb: '* Get honey for the Baker'
+  complete: 0
+  visibleGift: 1
+  takeGift: 1
+  requirement:
+  - Honey
+  gift:
+  - Bread

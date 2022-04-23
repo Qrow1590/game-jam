@@ -9,7 +9,11 @@ public class NPCStats : ScriptableObject {
     public string[] reminder;
     public string[] ending;
 
-    public GameObject requirement;
-    public GameObject gift;
+    public string questBlurb;
+    public bool complete;
+    public bool visibleGift;
+    public bool takeGift;
+    public string[] requirement;
+    public string[] gift;
 }
 

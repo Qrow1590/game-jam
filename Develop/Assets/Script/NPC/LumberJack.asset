@@ -21,5 +21,11 @@ MonoBehaviour:
   - '* ...'
   - "* Here you are. Hope this is useful for whatever you\u2019re working on."
   - You have received a ton of wood. Good thing you can carry it!
-  requirement: {fileID: 0}
-  gift: {fileID: 0}
+  questBlurb: '* Get Honey Bread for the Lumberjack'
+  complete: 0
+  visibleGift: 1
+  takeGift: 1
+  requirement:
+  - Bread
+  gift:
+  - Wood
