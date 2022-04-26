@@ -18,6 +18,7 @@ public class NPC : MonoBehaviour
     [SerializeField] private string[] ending = null;
     [SerializeField] private Inventory backpack;
     [SerializeField] private QuestList quest;
+    [SerializeField] private Lamps lamp;
 
     private void Awake()
     {
@@ -58,6 +59,9 @@ public class NPC : MonoBehaviour
                 quest.removeQuest(gameObject.name);
                 backpack.addInventory(stats.gift[0], stats.visibleGift);
                 backpack.removeItem(stats.requirement, stats.takeGift);
+                if(stats.gift[0] == "Complete"){
+                    lamp.turnOn();
+                }
             }
             talk++;
             return end;

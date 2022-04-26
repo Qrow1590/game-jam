@@ -13,11 +13,18 @@ public class Inventory : MonoBehaviour
     public void addInventory(string name, bool visibleGift)
     {
         if (list.ContainsKey(name))
-        {
+        { // refactor this section
             int value = list[name];
             list[name] = value + 1;
             if(visibleGift){
-            UIlist[name].GetComponent<TextMeshProUGUI>().text = name + " x " + list[name];
+            if(UIlist.ContainsKey(name)){
+                UIlist[name].GetComponent<TextMeshProUGUI>().text = name + " x " + list[name];
+            } else {
+                list[name] = 1;
+                UIlist.Add(name, Instantiate(inventory, container));
+                UIlist[name].GetComponent<TextMeshProUGUI>().text = name + " x 1";
+            }
+            
             }
         }
         else

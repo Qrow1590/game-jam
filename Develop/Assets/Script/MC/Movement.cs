@@ -29,12 +29,16 @@ public class Movement : MonoBehaviour
         _playerInput = new Control();
         _rigidBody = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Confined;
-    }
-
-    private void OnEnable(){
+        _playerInput.Enable();
         _playerInput.Movement.Enable();
         _playerInput.Movement.View.performed += x => input_view = x.ReadValue<Vector2>().normalized;
         _playerInput.Movement.View.canceled += x => input_view = x.ReadValue<Vector2>().normalized;
+    }
+
+    private void OnEnable(){
+        _playerInput.Enable();
+        _playerInput.Movement.Enable();
+        
     }
 
     private void OnDisable(){
@@ -49,7 +53,6 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        //add if (paused) here
         Move();
     }
 
@@ -65,5 +68,14 @@ public class Movement : MonoBehaviour
     private void RotateMove(){
         yaw = input_view.normalized.x * Time.deltaTime * cameraSpeed;
         transform.Rotate(Vector3.up * yaw);
+    }
+
+    public void FreezeMove(){ // prevents player from sliding down slopes while in the middle of convo
+        _rigidBody.constraints = RigidbodyConstraints.FreezeAll;
+    }
+
+    public void UnFreezeMove(){ // returns player movement and freezes rotation by the environment
+        _rigidBody.constraints = RigidbodyConstraints.None;
+        _rigidBody.constraints = RigidbodyConstraints.FreezeRotation;
     }
 }

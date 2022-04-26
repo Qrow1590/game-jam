@@ -26,6 +26,6 @@ MonoBehaviour:
   visibleGift: 1
   takeGift: 1
   requirement:
-  - Bread
+  - Honey Bread
   gift:
   - Wood

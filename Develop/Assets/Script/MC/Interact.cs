@@ -11,14 +11,18 @@ public class Interact : MonoBehaviour
         [SerializeField] private Collider trigger;
         [SerializeField] private Inventory backpack;
         [SerializeField] private Movement move;
+        [SerializeField] private Transform posi;
     void Awake(){
         cont = new Control();
+        cont.Enable();
+        cont.Interact.Interact.performed += _ =>TriggerSwitch(true);
+        cont.Interact.Interact.canceled += _ => TriggerSwitch(false);
     }
 
     private void OnEnable(){
         cont.Enable();
-        cont.Interact.Interact.performed += _ =>TriggerSwitch(true);
-        cont.Interact.Interact.canceled += _ => TriggerSwitch(false);
+        cont.Interact.Enable();
+        cont.Interact.Interact.Enable();
     }
 
     private void TriggerSwitch(bool state) {
@@ -33,8 +37,10 @@ public class Interact : MonoBehaviour
         if (other.tag == "NPC"){
            bool isDone = other.GetComponent<NPC>().Dialouge();
            if(!isDone){ // stop the player from moving while dialouge is happening
+               move.FreezeMove();
                move.enabled = false;
            } else {
+               move.UnFreezeMove();
                move.enabled = true;
            }
         }

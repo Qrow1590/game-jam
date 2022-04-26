@@ -7,25 +7,55 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private Menu script;
     [SerializeField] private GameObject pause;
 
-    void Awake(){
+
+    [SerializeField] private Interact interact;
+    [SerializeField] private Questory questory;
+    [SerializeField] private Movement movement;
+
+
+    void Awake()
+    {
         cont = new Control();
     }
-    void OnEnable(){
+    void OnEnable()
+    {
         cont.Enable();
         cont.UI.Enable();
         cont.UI.Pause.performed += _ => openClose();
     }
-    
-    void OnDisable(){
+
+    void OnDisable()
+    {
+        cont.UI.Pause.performed -= _ => openClose();
         cont.UI.Disable();
         cont.Disable();
     }
 
-    private void openClose(){
-        if(!pause.activeSelf){
+    private void openClose()
+    {
+        if (!pause.activeSelf)
+        {
             script.OpenMenu(pause);
-        } else {
-            script.CloseMenu(pause);
+            disableInteractions();
         }
+        else
+        {
+            script.CloseMenu(pause);
+            enableInteractions();
+        }
+    }
+
+    public void disableInteractions()
+    {
+        questory.enabled = false;
+        interact.enabled = false;
+        movement.enabled = false;
+    }
+
+    public void enableInteractions()
+    {
+        interact.enabled = true;
+        movement.enabled = true;
+        questory.enabled = true;
     }
 }

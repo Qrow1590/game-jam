@@ -12,21 +12,25 @@ public class Questory : MonoBehaviour
     void Awake()
     {
         cont = new Control();
+        cont.Enable();    
+        cont.UI.Menus.Enable();
+        cont.UI.Menus.performed += _ => MenuOpen();
     }
     private void OnEnable()
     {
         cont.Enable();
-        cont.UI.Menus.performed += _ => MenuOpen();
+        menuCount = 0;
+        cont.UI.Menus.Enable();
     }
 
     private void MenuOpen(){
         if(menuCount == 0){
             itemList.SetActive(true);
-            menuCount++;
+            menuCount = menuCount + 1;
         } else if (menuCount == 1){
             itemList.SetActive(false);
             questList.SetActive(true);
-            menuCount++;
+            menuCount = menuCount + 1;
         } else if (menuCount == 2){
             itemList.SetActive(false);
             questList.SetActive(false);
@@ -36,7 +40,7 @@ public class Questory : MonoBehaviour
 
     private void OnDisable()
     {
-        cont.UI.Disable();
         cont.UI.Menus.Disable();
+        cont.UI.Disable();
     }
 }
