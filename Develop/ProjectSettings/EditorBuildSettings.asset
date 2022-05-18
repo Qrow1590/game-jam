@@ -11,7 +11,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/MainLevel.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TempScene.unity
     guid: 797eee3d8712f3341826cef44d71ac14
+  - enabled: 1
+    path: Assets/Scenes/New Level.unity
+    guid: d96142efe04fb6a4ab72902b8823e60b
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: 7eb806ba4a73d6b4c9a803fc2aa7b451
   m_configObjects: {}
