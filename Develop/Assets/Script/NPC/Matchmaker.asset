@@ -24,11 +24,13 @@ MonoBehaviour:
   reminder:
   - '* Ah..'
   - '* Please come back with flowers.'
-  ending:
+  questEnd:
   - '* Thank you , thank you , thank you!'
-  - "* I\u2019m sure my client will love these. Here\u2019s the matches you need."
-  - "* Don\u2019t hesitate to come back here for some advice though haha"
+  - '* I''m sure my g- [ahem] client will love these. Here''s the matches you need.'
+  - '* Don''t hesitate to come back here for some advice though haha'
   - You have received some hot sticks!
+  endDialouge:
+  - "* I hope I can find her at the festival\u2026 she\u2019ll love these flowers.."
   questBlurb: '* Get flowers for the Matchmaker'
   complete: 0
   visibleGift: 1

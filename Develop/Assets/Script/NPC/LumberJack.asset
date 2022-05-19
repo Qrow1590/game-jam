@@ -16,11 +16,13 @@ MonoBehaviour:
   - "* You need some wood? Well\u2026 You\u2019ll have to wait till I get some food\u2026"
   reminder:
   - '* Still hungry here...'
-  ending:
-  - "* Mmmm. I love honey bread, thanks! I\u2019ll go and get the wood for you!"
+  questEnd:
+  - '* Mmmm. I love honey bread, thanks! Ill go and get the wood for you!'
   - '* ...'
-  - "* Here you are. Hope this is useful for whatever you\u2019re working on."
+  - '* Here you are. Hope this is useful for whatever you''re working on.'
   - You have received a ton of wood. Good thing you can carry it!
+  endDialouge:
+  - "* Mmm can\u2019t wait to eat more honey bread at the festival!"
   questBlurb: '* Get Honey Bread for the Lumberjack'
   complete: 0
   visibleGift: 1

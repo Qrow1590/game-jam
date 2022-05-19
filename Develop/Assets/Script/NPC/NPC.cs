@@ -10,16 +10,19 @@ public class NPC : MonoBehaviour
     private int talk = 0;
     private int index1 = 0;
     private int index2 = 0;
+    private int index3 = 0;
     [SerializeField] private NPCStats stats;
     [SerializeField] private TextMeshProUGUI dialouge;
     [SerializeField] private GameObject textBox;
     [SerializeField] private Queue<string> intro = new Queue<string>();
     [SerializeField] private string[] reminder = null;
-    [SerializeField] private string[] ending = null;
+    [SerializeField] private string[] questEnd = null;
+    [SerializeField] private string[] endDialouge = null;
     [SerializeField] private Inventory backpack;
     [SerializeField] private QuestList quest;
     [SerializeField] private Lamps lamp;
     [SerializeField] private SceneTransition scene;
+    private bool isDone = false;
 
     private void Awake()
     {
@@ -29,7 +32,8 @@ public class NPC : MonoBehaviour
             intro.Enqueue(stats.intro[i]);
         }
         reminder = stats.reminder;
-        ending = stats.ending;
+        questEnd = stats.questEnd;
+        endDialouge = stats.endDialouge;
     }
 
     private void OnEnable()
@@ -53,25 +57,34 @@ public class NPC : MonoBehaviour
         } else if (talk > 0 && !isQuestComplete())
         {
             return Reminder(reminder);
-        } else if (talk > 0 && isQuestComplete()){
+        } else if ((talk > 0 && isQuestComplete()) && !isDone){
             
-            var end =  Conclusion(ending);
+            var end =  Conclusion(questEnd);
             if(talk == 1){
                 quest.removeQuest(gameObject.name);
                 backpack.addInventory(stats.gift[0], stats.visibleGift);
                 backpack.removeItem(stats.requirement, stats.takeGift);
-                if(stats.gift[0] == "Complete"){ // Game Complete Section
+                if(stats.gift[0] == "Complete" && end){ // Game Complete Section
                     lamp.turnOn();
                     scene.onWin();
                 }
             }
-            talk++;
+            if(talk == 1 && end ){
+                 talk++;
+            }
+            if(end){
+                isDone = true;
+            }
+            
             return end;
+        } else if ((talk > 0 && isQuestComplete()) && isDone){
+
+            return Final(endDialouge);
         }
         return false;
     }
 
-    private bool Intro(Queue<string> queue)
+    private bool Intro(Queue<string> queue) // why? I guess it's so that I know to move on but??
     {
         if (queue.Count > 0)
         {
@@ -105,6 +118,18 @@ public class NPC : MonoBehaviour
         } else {
             textBox.SetActive(false);
             index2 = 0;
+            return true;
+        }
+    }
+
+    private bool Final(string[] arr){
+        if(index3 < arr.Length){
+            dialouge.text = arr[index3];
+            index3++;
+            return false;
+        } else {
+            textBox.SetActive(false);
+            index3 = 0;
             return true;
         }
     }

@@ -7,7 +7,8 @@ using UnityEngine;
 public class NPCStats : ScriptableObject {
     public string[] intro;
     public string[] reminder;
-    public string[] ending;
+    public string[] questEnd;
+    public string[] endDialouge;
 
     public string questBlurb;
     public bool complete;

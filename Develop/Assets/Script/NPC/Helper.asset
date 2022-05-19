@@ -29,9 +29,11 @@ MonoBehaviour:
   - '* I''m going to take a nap .. zzzzz'
   reminder:
   - '* ZZZZZZZZZZZZZ'
-  ending:
-  - "* sNrk. Hu-Whu oh. It\u2019s you. I guess you\u2019re done then."
-  - "* Well, alright go tell grandpa that I\u2019ll be up there"
+  questEnd:
+  - '* sNrk. Hu-Whu oh. It''s you. I guess you''re done then.'
+  - '* Well, alright go tell grandpa that I\u2019ll be up there.'
+  endDialouge:
+  - "* I\u2019m going! I\u2019m going!"
   questBlurb: '* Get Wood and Matches for the Helper'
   complete: 0
   visibleGift: 0

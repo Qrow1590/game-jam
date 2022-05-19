@@ -24,9 +24,10 @@ MonoBehaviour:
   - '* Get wood! And matches! '
   - "* And find someone who\u2019s faster than you! You\u2019re taking too long!"
   - '* [Cough]'
-  ending:
+  questEnd:
   - '* Finally [cough]! Thought it was going to take a year.'
   - '* Let the festival begin!'
+  endDialouge: []
   questBlurb: '* Get Wood, Matches, and a Helper for the festival'
   complete: 0
   visibleGift: 0

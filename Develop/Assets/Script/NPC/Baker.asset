@@ -15,18 +15,23 @@ MonoBehaviour:
   intro:
   - '* Hello there! How are you?'
   - '* Do you want some of my world renowned honey bread?'
-  - '*Well, I''m sorry to say, but I''m afraid all of my stock was bought.'
-  - '*However, if you could bring me some honey, I can make some more!'
+  - '* Well, I''m sorry to say, but I''m afraid all of my stock was bought.'
+  - '* However, if you could bring me some honey, I can make some more!'
   - '* I''ll give you a loaf for your troubles as well.'
   reminder:
   - '*Did you forget? Please bring back some honey.'
-  ending:
-  - '*Oh thank you! 1 fresh honey loaf coming right up!'
-  - '*....'
-  - '*....'
-  - '*Here it is, I hope you enjoy it as much as I do!'
-  - '*See you later at the festival!'
-  - You have received 1 delicious world renowned honey bread loaf.
+  questEnd:
+  - '* Oh thank you! 1 fresh honey loaf coming right up!'
+  - '* ....'
+  - '* ....'
+  - '* Here it is, I hope you enjoy it as much as I do!'
+  - '* See you later at the festival!'
+  - You have received 1 world renowned honey bread loaf.
+  endDialouge:
+  - '* Hmm hmmm hmmm '
+  - "* Can\u2019t wait to see everyone\u2019s smiles when they eat my delicious bread
+    ! "
+  - '* Hmm hmmm hmmm'
   questBlurb: '* Get honey for the Baker'
   complete: 0
   visibleGift: 1
